@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout'){
             steps{
                 git branch: 'main', url: 'https://github.com/louann123/geolocation-1.git'
-                }
+                
             }
         }
         stage('Code Build') {
@@ -44,5 +44,5 @@ pipeline {
         }
         
     }
-    
+}    
 
