@@ -12,11 +12,17 @@ pipeline {
         stage('Checkout'){
             steps{
                 git branch: 'main', url: 'https://github.com/louann123/geolocation-1.git'
+                }
             }
         }
         stage('Code Build') {
             steps {
                 sh 'mvn clean package'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
             }
         }
           // Building Docker images
@@ -36,10 +42,7 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
+        
     }
-}
+    
+
